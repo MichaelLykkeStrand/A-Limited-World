@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class AnimationDelay : MonoBehaviour
 {
-    [SerializeField, Range(5,100)]
-    private int delay = 5;
-    [SerializeField]
-    private string animationName;
+    [SerializeField, Min(1)] private int minDelay = 5;
+    [SerializeField, Min(10)] private int maxDelay = 50;
     private Animator m_Animator;
     // Start is called before the first frame update
     void Start()
@@ -20,9 +18,10 @@ public class AnimationDelay : MonoBehaviour
      {
          while (true)
          {
-            yield return new WaitForSeconds(delay);
+            int random = Random.Range(minDelay,maxDelay);
+            yield return new WaitForSeconds(random);
             GetComponent<SpriteRenderer>().enabled = true;
-            m_Animator.Play(animationName);
+            m_Animator.Play("");
          }
      }
 }
