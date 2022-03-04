@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Lilypad
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -6636963309793451902, guid: 9ab62bf2c0bb339409b8fee894ebba92, type: 3}
+  - {fileID: 5237606164704071833, guid: 9ab62bf2c0bb339409b8fee894ebba92, type: 3}
+  - {fileID: 1453897970555885594, guid: 9ab62bf2c0bb339409b8fee894ebba92, type: 3}
+  - {fileID: 6013270647777548405, guid: 9ab62bf2c0bb339409b8fee894ebba92, type: 3}
+  - {fileID: -212095941761129652, guid: 9ab62bf2c0bb339409b8fee894ebba92, type: 3}
+  - {fileID: -8183183238778859646, guid: 9ab62bf2c0bb339409b8fee894ebba92, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
