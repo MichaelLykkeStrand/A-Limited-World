@@ -27,6 +27,13 @@ public class TaskController : MonoBehaviour, ITaskCallback
     private void OpenClosestTask()
     {
         if (taskOpen) { return; }
+        SetClosestTask();
+        closestTask.Open();
+        taskOpen = true;
+    }
+
+    private void SetClosestTask()
+    {
         float closest = Mathf.Infinity;
         foreach (AbstractTask task in tasksInRange)
         {
@@ -36,8 +43,6 @@ public class TaskController : MonoBehaviour, ITaskCallback
                 closest = Vector2.Distance(transform.position, task.transform.position);
             }
         }
-        closestTask.Open();
-        taskOpen = true;
     }
 
     public void OnOpenTask(AbstractTask task)
