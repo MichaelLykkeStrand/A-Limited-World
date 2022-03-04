@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
     private Rigidbody2D rb;
+    private bool canMove = true;
 
     Vector2 movement;
 
@@ -16,12 +17,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (canMove)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
+        else { movement = Vector2.zero; }
+        
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + (moveSpeed * Time.fixedDeltaTime * movement.normalized));
     }
+
+    public void DisableMovement() => canMove = false;
+
+    public void EnableMovement() => canMove = true;
 }
