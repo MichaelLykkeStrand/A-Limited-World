@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TaskController : MonoBehaviour, ITaskCallback
 {
-    [SerializeField] float interactableRadius = 2f;
     [SerializeField] Button useButton;
     AbstractTask closestTask;
     PlayerMovement playerMovement;
@@ -64,5 +63,10 @@ public class TaskController : MonoBehaviour, ITaskCallback
     {
         playerMovement.canMove = true;
         taskOpen = false;
+    }
+
+    public void OnCompleteTask(AbstractTask task)
+    {
+        task.Close();
     }
 }

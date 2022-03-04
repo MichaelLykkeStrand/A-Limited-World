@@ -8,10 +8,8 @@ public abstract class AbstractTask : MonoBehaviour
     [SerializeField] GameObject task;
     [SerializeField] float interactableRadius = 2f;
     public bool MovementRequired { get; protected set; } = false;
-
     private ITaskCallback taskCallback;
     private Transform player;
-    public Action OnComplete;
     public Action OnFail;
 
     private bool playerAlreadyInRange = false;
@@ -46,6 +44,11 @@ public abstract class AbstractTask : MonoBehaviour
     {
         taskCallback.OnOpenTask(this);
         task.SetActive(true);
+    }
+
+    protected void CompleteTask()
+    {
+        taskCallback.OnCompleteTask(this);        
     }
 
     private bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius;
