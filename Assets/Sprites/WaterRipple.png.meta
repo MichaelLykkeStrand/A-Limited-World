@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 9ab62bf2c0bb339409b8fee894ebba92
+guid: 51ba99d607b21729182f84b578fc2272
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6636963309793451902
-    second: Lilypad_0
+      213: 2397325026774675155
+    second: WaterRipple_0
   - first:
-      213: 5237606164704071833
-    second: Lilypad_1
+      213: -6305113726679945889
+    second: WaterRipple_1
   - first:
-      213: 1453897970555885594
-    second: Lilypad_2
-  - first:
-      213: 6013270647777548405
-    second: Lilypad_3
-  - first:
-      213: -212095941761129652
-    second: Lilypad_4
-  - first:
-      213: -8183183238778859646
-    second: Lilypad_5
+      213: 1660586876272478823
+    second: WaterRipple_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lilypad_0
+      name: WaterRipple_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 10
-        height: 10
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +126,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 280e57ca805c4e3a0800000000000000
-      internalID: -6636963309793451902
+      spriteID: 3deee080962054120800000000000000
+      internalID: 2397325026774675155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lilypad_1
+      name: WaterRipple_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 8
         y: 0
-        width: 10
-        height: 10
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99015988e07bfa840800000000000000
-      internalID: 5237606164704071833
+      spriteID: f5d6dc4b87cbf78a0800000000000000
+      internalID: -6305113726679945889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lilypad_2
+      name: WaterRipple_2
       rect:
         serializedVersion: 2
-        x: 20
+        x: 16
         y: 0
-        width: 10
-        height: 10
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,71 +168,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1815aa40884d2410800000000000000
-      internalID: 1453897970555885594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lilypad_3
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 0
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57850136bcd637350800000000000000
-      internalID: 6013270647777548405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lilypad_4
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c43a60d5ddb7e0df0800000000000000
-      internalID: -212095941761129652
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lilypad_5
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 0
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28fc7a0633e7f6e80800000000000000
-      internalID: -8183183238778859646
+      spriteID: 76a85ee37f69b0710800000000000000
+      internalID: 1660586876272478823
       vertices: []
       indices: 
       edges: []
