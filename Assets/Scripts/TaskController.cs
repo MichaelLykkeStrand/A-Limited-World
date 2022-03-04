@@ -10,6 +10,7 @@ public class TaskController : MonoBehaviour, ITaskCallback
     AbstractTask closestTask;
     PlayerMovement playerMovement;
     private List<AbstractTask> tasksInRange;
+    private bool taskOpen = false;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class TaskController : MonoBehaviour, ITaskCallback
 
     private void OpenClosestTask()
     {
+        if (taskOpen) { return; }
         float closest = Mathf.Infinity;
         foreach (AbstractTask task in tasksInRange)
         {
@@ -35,7 +37,12 @@ public class TaskController : MonoBehaviour, ITaskCallback
             }
         }
         closestTask.Open();
-        playerMovement.DisableMovement();
+        taskOpen = true;
+    }
+
+    public void OnOpenTask(AbstractTask task)
+    {
+        playerMovement.canMove = task.MovementRequired;
     }
 
     public void OnEnterRange(AbstractTask task)
@@ -50,6 +57,7 @@ public class TaskController : MonoBehaviour, ITaskCallback
 
     public void OnClosedTask(AbstractTask task)
     {
-        playerMovement.EnableMovement();
+        playerMovement.canMove = true;
+        taskOpen = false;
     }
 }

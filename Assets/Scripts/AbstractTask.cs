@@ -7,6 +7,8 @@ public abstract class AbstractTask : MonoBehaviour
 {
     [SerializeField] GameObject task;
     [SerializeField] float interactableRadius = 2f;
+    public bool MovementRequired { get; protected set; } = false;
+
     private ITaskCallback taskCallback;
     private Transform player;
     public Action OnComplete;
@@ -14,7 +16,7 @@ public abstract class AbstractTask : MonoBehaviour
 
     private bool playerAlreadyInRange = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         taskCallback = GameObject.FindGameObjectWithTag("Player").GetComponent<ITaskCallback>();
@@ -42,6 +44,7 @@ public abstract class AbstractTask : MonoBehaviour
 
     public void Open()
     {
+        taskCallback.OnOpenTask(this);
         task.SetActive(true);
     }
 

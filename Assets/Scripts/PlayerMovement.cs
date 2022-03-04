@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
     private Rigidbody2D rb;
-    private bool canMove = true;
+    public bool canMove = true;
 
     Vector2 movement;
 
@@ -31,7 +31,4 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + (moveSpeed * Time.fixedDeltaTime * movement.normalized));
     }
 
-    public void DisableMovement() => canMove = false;
-
-    public void EnableMovement() => canMove = true;
 }
