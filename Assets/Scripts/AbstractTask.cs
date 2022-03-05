@@ -7,10 +7,14 @@ public abstract class AbstractTask : MonoBehaviour
 {
     [SerializeField] GameObject task;
     [SerializeField] float interactableRadius = 2f;
+    [SerializeField] float minIdleTime = 5f;
+    [SerializeField] float maxIdleTime = 10f;
+    private float timeSinceTaskCompleted = 0;
+    private float randomIdleTime;
+    public bool TaskActive { get; protected set; } = false;
     public bool MovementRequired { get; protected set; } = false;
     private ITaskCallback taskCallback;
     private Transform player;
-    public Action OnFail;
 
     private bool playerAlreadyInRange = false;
 
@@ -19,14 +23,33 @@ public abstract class AbstractTask : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         taskCallback = GameObject.FindGameObjectWithTag("Player").GetComponent<ITaskCallback>();
         task.SetActive(false);
+        randomIdleTime = UnityEngine.Random.Range(minIdleTime, maxIdleTime);
     }
     private void Update()
+    {
+        HandleEnterRange();
+        HandleExitRange();
+
+        timeSinceTaskCompleted += Time.deltaTime;
+        if (timeSinceTaskCompleted >= randomIdleTime && !TaskActive)
+        {
+            TaskActive = true;
+            taskCallback.OnActiveTask(this);
+        }
+
+    }
+
+    private void HandleEnterRange()
     {
         if (InRangeOfPlayer() && !playerAlreadyInRange)
         {
             taskCallback.OnEnterRange(this);
             playerAlreadyInRange = true;
         }
+    }
+
+    private void HandleExitRange()
+    {
         if (!InRangeOfPlayer() && playerAlreadyInRange)
         {
             taskCallback.OnExitRange(this);
@@ -46,10 +69,12 @@ public abstract class AbstractTask : MonoBehaviour
         task.SetActive(true);
     }
 
-    protected void CompleteTask()
+    protected void Complete()
     {
-        taskCallback.OnCompleteTask(this);        
+        taskCallback.OnCompleteTask(this);
+        TaskActive = false;
+        timeSinceTaskCompleted = 0;
     }
 
-    private bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius;
+    private bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius && TaskActive;
 }

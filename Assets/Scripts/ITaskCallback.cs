@@ -5,4 +5,6 @@ public interface ITaskCallback
     void OnClosedTask(AbstractTask task);
     void OnOpenTask(AbstractTask task);
     void OnCompleteTask(AbstractTask task);
+
+    void OnActiveTask(AbstractTask task);
 }

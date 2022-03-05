@@ -24,6 +24,11 @@ public class ProgressBarTask : AbstractTask
             progressBar.fillAmount += (Time.deltaTime * updateSpeed);
             yield return null;
         }
-        CompleteTask();
+        Complete();
+    }
+
+    private void Reset()
+    {
+        progressBar.fillAmount = 0;
     }
 }

@@ -8,19 +8,23 @@ public class TaskController : MonoBehaviour, ITaskCallback
     [SerializeField] Button useButton;
     AbstractTask closestTask;
     PlayerMovement playerMovement;
-    private List<AbstractTask> tasksInRange;
+    [SerializeField] Canvas hud;
+    [SerializeField] GameObject pointerPrefab;
+    private List<AbstractTask> activeTasksInRange;
+    Dictionary<AbstractTask, TaskPointer> taskPointers;
     private bool taskOpen = false;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        tasksInRange = new List<AbstractTask>();
+        activeTasksInRange = new List<AbstractTask>();
+        taskPointers = new Dictionary<AbstractTask, TaskPointer>();
         useButton.onClick.AddListener(OpenClosestTask);
     }
 
     void Update()
     {
-        useButton.interactable = tasksInRange.Count > 0;
+        useButton.interactable = activeTasksInRange.Count > 0;
     }
 
     private void OpenClosestTask()
@@ -34,7 +38,7 @@ public class TaskController : MonoBehaviour, ITaskCallback
     private void SetClosestTask()
     {
         float closest = Mathf.Infinity;
-        foreach (AbstractTask task in tasksInRange)
+        foreach (AbstractTask task in activeTasksInRange)
         {
             if (Vector2.Distance(transform.position, task.transform.position) < closest)
             {
@@ -51,12 +55,12 @@ public class TaskController : MonoBehaviour, ITaskCallback
 
     public void OnEnterRange(AbstractTask task)
     {
-        tasksInRange.Add(task);
+        activeTasksInRange.Add(task);
     }
 
     public void OnExitRange(AbstractTask task)
     {
-        tasksInRange.Remove(task);
+        activeTasksInRange.Remove(task);
     }
 
     public void OnClosedTask(AbstractTask task)
@@ -67,6 +71,19 @@ public class TaskController : MonoBehaviour, ITaskCallback
 
     public void OnCompleteTask(AbstractTask task)
     {
+        Debug.Log("Task completed");
+        activeTasksInRange.Remove(task);
+        taskPointers.TryGetValue(task, out TaskPointer pointer);
+        Destroy(pointer.gameObject);
+        taskPointers.Remove(task);
         task.Close();
+    }
+
+    public void OnActiveTask(AbstractTask task)
+    {
+        Debug.Log("Task activated");
+        GameObject pointer = Instantiate(pointerPrefab, hud.transform);
+        pointer.GetComponent<TaskPointer>().SetTarget(task.transform.position);
+        taskPointers.Add(task, pointer.GetComponent<TaskPointer>());
     }
 }
