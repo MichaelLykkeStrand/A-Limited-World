@@ -22,10 +22,21 @@ public class TaskController : MonoBehaviour, ITaskCallback
         activeTasksInRange = new List<AbstractTask>();
         taskPointers = new Dictionary<AbstractTask, TaskPointer>();
         useButton.onClick.AddListener(OpenClosestTask);
+        HideTaskCompletedTextOnAwake();
+        InitializeFader();
+    }
+
+    private void InitializeFader()
+    {
+        fader = FindObjectOfType<Fader>();
+        if (fader == null) { Debug.LogError("Task controller missing Fader. Add the fader prefab to this scene."); }
+    }
+
+    private void HideTaskCompletedTextOnAwake()
+    {
         taskCompletedText.alpha = 0;
         taskCompletedText.interactable = false;
         taskCompletedText.blocksRaycasts = false;
-        fader = FindObjectOfType<Fader>();
     }
 
     void Update()
