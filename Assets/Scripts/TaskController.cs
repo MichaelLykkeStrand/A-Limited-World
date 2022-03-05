@@ -16,6 +16,8 @@ public class TaskController : MonoBehaviour, ITaskCallback
     private bool taskOpen = false;
     private Fader fader;
 
+    // Timer for failing task if its an emergency
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -89,18 +91,18 @@ public class TaskController : MonoBehaviour, ITaskCallback
     public void OnCompleteTask(AbstractTask task)
     {
         activeTasksInRange.Remove(task);
+        task.Close();
+        task.Reset();
         taskPointers.TryGetValue(task, out TaskPointer pointer);
         Destroy(pointer.gameObject);
         taskPointers.Remove(task);
-        task.Close();
-        task.Reset();
+        
 
         StartCoroutine(fader.FadeInOut(taskCompletedText, 1f));
     }
 
     public void OnActiveTask(AbstractTask task)
     {
-        Debug.Log("Task activated");
         GameObject pointer = Instantiate(pointerPrefab, hud.transform);
         pointer.GetComponent<TaskPointer>().SetTarget(task.transform.position);
         taskPointers.Add(task, pointer.GetComponent<TaskPointer>());

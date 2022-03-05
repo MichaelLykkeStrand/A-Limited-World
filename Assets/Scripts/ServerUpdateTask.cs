@@ -11,6 +11,7 @@ public class ServerUpdateTask : AbstractTask
     [SerializeField] float updateSpeed = 0.2f;
     [SerializeField] float baseServerVersion = 1.4f;
     float serverVersion;
+    bool serverUpdating = false;
 
     protected override void Awake()
     {
@@ -20,7 +21,17 @@ public class ServerUpdateTask : AbstractTask
         serverVersionText.text = "Ver. 1." + serverVersion.ToString();
     }
 
-    public void OnUpdateButtonPress() => StartCoroutine(UpdateServer());
+    protected override void Update()
+    {
+        base.Update();
+        updateButton.interactable = !serverUpdating;
+    }
+
+    public void OnUpdateButtonPress()
+    {
+        StartCoroutine(UpdateServer());
+        serverUpdating = true;
+    }
 
     private IEnumerator UpdateServer()
     {
@@ -29,13 +40,19 @@ public class ServerUpdateTask : AbstractTask
             progressBar.fillAmount += (Time.deltaTime * updateSpeed);
             yield return null;
         }
+        UpdateServerVersion();
+        Complete();
+    }
+
+    private void UpdateServerVersion()
+    {
         serverVersion += 0.3f;
         serverVersionText.text = "Ver. 1." + serverVersion.ToString();
-        Complete();
     }
 
     public override void Reset()
     {
         progressBar.fillAmount = 0;
+        serverUpdating = false;
     }
 }
