@@ -406,7 +406,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1059864973761844532}
         m_TargetAssemblyTypeName: AbstractTask, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1

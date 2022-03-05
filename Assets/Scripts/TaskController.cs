@@ -91,19 +91,18 @@ public class TaskController : MonoBehaviour, ITaskCallback
     public void OnCompleteTask(AbstractTask task)
     {
         activeTasksInRange.Remove(task);
-        taskPointers.TryGetValue(task, out TaskPointer pointer);
-        Debug.Log("pointer " + pointer);
-        Destroy(pointer.gameObject);
-        taskPointers.Remove(task);
         task.Close();
         task.Reset();
+        taskPointers.TryGetValue(task, out TaskPointer pointer);
+        Destroy(pointer.gameObject);
+        taskPointers.Remove(task);
+        
 
         StartCoroutine(fader.FadeInOut(taskCompletedText, 1f));
     }
 
     public void OnActiveTask(AbstractTask task)
     {
-        Debug.Log("Task activated");
         GameObject pointer = Instantiate(pointerPrefab, hud.transform);
         pointer.GetComponent<TaskPointer>().SetTarget(task.transform.position);
         taskPointers.Add(task, pointer.GetComponent<TaskPointer>());
