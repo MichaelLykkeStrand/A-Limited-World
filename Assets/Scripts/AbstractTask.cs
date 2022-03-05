@@ -76,5 +76,10 @@ public abstract class AbstractTask : MonoBehaviour
         timeSinceTaskCompleted = 0;
     }
 
+    public virtual void Reset()
+    {
+        
+    }
+
     private bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius && TaskActive;
 }

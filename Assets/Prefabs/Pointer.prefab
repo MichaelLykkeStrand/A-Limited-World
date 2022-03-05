@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1cabfe062230c41a4df053d4a097c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  border: 7.5
+  border: 40
   staticSprite: {fileID: 21300000, guid: 91686e7ca99f56547a1bf0e7d3b30370, type: 3}
   arrowSprite: {fileID: 21300000, guid: 5e6b40da524df584fbbfd10ae04feb34, type: 3}

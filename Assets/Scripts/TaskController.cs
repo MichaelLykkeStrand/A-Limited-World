@@ -71,12 +71,12 @@ public class TaskController : MonoBehaviour, ITaskCallback
 
     public void OnCompleteTask(AbstractTask task)
     {
-        Debug.Log("Task completed");
         activeTasksInRange.Remove(task);
         taskPointers.TryGetValue(task, out TaskPointer pointer);
         Destroy(pointer.gameObject);
         taskPointers.Remove(task);
         task.Close();
+        task.Reset();
     }
 
     public void OnActiveTask(AbstractTask task)
