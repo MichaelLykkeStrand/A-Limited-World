@@ -40,9 +40,14 @@ public class ServerUpdateTask : AbstractTask
             progressBar.fillAmount += (Time.deltaTime * updateSpeed);
             yield return null;
         }
+        UpdateServerVersion();
+        Complete();
+    }
+
+    private void UpdateServerVersion()
+    {
         serverVersion += 0.3f;
         serverVersionText.text = "Ver. 1." + serverVersion.ToString();
-        Complete();
     }
 
     public override void Reset()

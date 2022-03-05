@@ -25,29 +25,18 @@ public class FiltrationTask : AbstractTask
         if (!TaskActive) { return; }
         if (holdButton.pointerDown)
         {
-            filterImage.sprite = filterOn;
-            if (dirtyWater.fillAmount > 0)
-            {
-                dirtyWater.fillAmount -= Time.deltaTime;
-            }
-            if (cleanWater.fillAmount < 1)
-            {
-                cleanWater.fillAmount += Time.deltaTime;
-            }
+            FilterWater();
         }
         else
         {
-            filterImage.sprite = filterOff;
-            if (dirtyWater.fillAmount < 1)
-            {
-                dirtyWater.fillAmount += Time.deltaTime;
-            }
-            if (cleanWater.fillAmount > 0)
-            {
-                cleanWater.fillAmount -= Time.deltaTime;
-            }
+            AddDirtyWater();
         }
 
+        CompleteTaskOnFullCleanWater();
+    }
+
+    private void CompleteTaskOnFullCleanWater()
+    {
         if (cleanWater.fillAmount >= 1 && !filtrationComplete)
         {
             filtrationComplete = true;
@@ -55,13 +44,37 @@ public class FiltrationTask : AbstractTask
         }
     }
 
+    private void AddDirtyWater()
+    {
+        filterImage.sprite = filterOff;
+        if (dirtyWater.fillAmount < 1)
+        {
+            dirtyWater.fillAmount += Time.deltaTime;
+        }
+        if (cleanWater.fillAmount > 0)
+        {
+            cleanWater.fillAmount -= Time.deltaTime;
+        }
+    }
+
+    private void FilterWater()
+    {
+        filterImage.sprite = filterOn;
+        if (dirtyWater.fillAmount > 0)
+        {
+            dirtyWater.fillAmount -= Time.deltaTime;
+        }
+        if (cleanWater.fillAmount < 1)
+        {
+            cleanWater.fillAmount += Time.deltaTime;
+        }
+    }
+
     public override void Reset()
     {
-        
         dirtyWater.fillAmount = 1;
         cleanWater.fillAmount = 0;
         filterImage.sprite = filterOff;
         filtrationComplete = false;
-        Debug.Log("Resetting");
     }
 }
