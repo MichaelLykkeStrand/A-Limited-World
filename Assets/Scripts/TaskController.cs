@@ -16,6 +16,8 @@ public class TaskController : MonoBehaviour, ITaskCallback
     private bool taskOpen = false;
     private Fader fader;
 
+    // Timer for failing task if its an emergency
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -90,6 +92,7 @@ public class TaskController : MonoBehaviour, ITaskCallback
     {
         activeTasksInRange.Remove(task);
         taskPointers.TryGetValue(task, out TaskPointer pointer);
+        Debug.Log("pointer " + pointer);
         Destroy(pointer.gameObject);
         taskPointers.Remove(task);
         task.Close();
