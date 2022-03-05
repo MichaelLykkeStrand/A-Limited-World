@@ -25,7 +25,7 @@ public abstract class AbstractTask : MonoBehaviour
         task.SetActive(false);
         randomIdleTime = UnityEngine.Random.Range(minIdleTime, maxIdleTime);
     }
-    private void Update()
+    protected virtual void Update()
     {
         HandleEnterRange();
         HandleExitRange();
