@@ -9,10 +9,12 @@ public class TaskController : MonoBehaviour, ITaskCallback
     AbstractTask closestTask;
     PlayerMovement playerMovement;
     [SerializeField] Canvas hud;
+    [SerializeField] CanvasGroup taskCompletedText;
     [SerializeField] GameObject pointerPrefab;
     private List<AbstractTask> activeTasksInRange;
     Dictionary<AbstractTask, TaskPointer> taskPointers;
     private bool taskOpen = false;
+    private Fader fader;
 
     private void Awake()
     {
@@ -20,6 +22,10 @@ public class TaskController : MonoBehaviour, ITaskCallback
         activeTasksInRange = new List<AbstractTask>();
         taskPointers = new Dictionary<AbstractTask, TaskPointer>();
         useButton.onClick.AddListener(OpenClosestTask);
+        taskCompletedText.alpha = 0;
+        taskCompletedText.interactable = false;
+        taskCompletedText.blocksRaycasts = false;
+        fader = FindObjectOfType<Fader>();
     }
 
     void Update()
@@ -77,6 +83,8 @@ public class TaskController : MonoBehaviour, ITaskCallback
         taskPointers.Remove(task);
         task.Close();
         task.Reset();
+
+        StartCoroutine(fader.FadeInOut(taskCompletedText, 1f));
     }
 
     public void OnActiveTask(AbstractTask task)
