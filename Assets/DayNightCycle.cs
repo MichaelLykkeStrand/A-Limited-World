@@ -62,7 +62,7 @@ public class DayNightCycle : MonoBehaviour
 
     IEnumerator Sunrise()
     {
-        onSunrise.Invoke();
+        onSunrise?.Invoke();
         StopCoroutine(Sunset());
         while (sun.intensity < dayLight)
         {
