@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4946626453553302089}
   - component: {fileID: 4946626453553302088}
   - component: {fileID: 4946626453553302091}
+  - component: {fileID: -1614775462220788844}
   m_Layer: 0
   m_Name: Server Task
   m_TagString: Untagged
@@ -207,6 +208,25 @@ MonoBehaviour:
   updateButton: {fileID: 4946626455257455538}
   updateSpeed: 0.2
   baseServerVersion: 1.4
+--- !u!95 &-1614775462220788844
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4946626453553302090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0040e4d364715de6896287276f9f04ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4946626453654038193
 GameObject:
   m_ObjectHideFlags: 0
