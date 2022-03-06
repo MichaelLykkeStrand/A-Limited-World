@@ -8,7 +8,7 @@ public class MeleeWeaponController : WeaponController
     private bool isOnCooldown = false;
     private MeleeWeapon meleeWeapon;
     [SerializeField] private GameObject attackAnimationPrefab;
-    [SerializeField] private float attackRadius = 0.5f;
+
     void Start()
     {
         meleeWeapon = GetComponent<MeleeWeapon>();
@@ -27,7 +27,7 @@ public class MeleeWeaponController : WeaponController
             attackObject.transform.position = spawnPos;
             attackObject.transform.right = (Vector2)spawnPos - (Vector2)transform.position;
             attackObject.transform.parent = this.transform;
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRadius,dirToTarget,meleeWeapon.GetRange());
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, meleeWeapon.GetAttackRadius(),dirToTarget,meleeWeapon.GetRange());
             foreach(var hit in hits){
                 if(hit.transform == this.transform) continue;
                 HealthContainer health = hit.transform.GetComponent<HealthContainer>();

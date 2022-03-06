@@ -8,6 +8,8 @@ public class MeleeWeapon : Weapon
     [SerializeField] protected int damage;
     [SerializeField] protected float cooldown;
 
+    [SerializeField] protected float attackRadius = 0.5f;
+
     public float GetRange()
     {
         return range;
@@ -20,5 +22,9 @@ public class MeleeWeapon : Weapon
 
     public float GetCooldownTime(){
         return cooldown;
+    }
+
+    public float GetAttackRadius(){
+        return attackRadius;
     }
 }
