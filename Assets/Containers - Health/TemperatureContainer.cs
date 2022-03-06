@@ -37,6 +37,18 @@ public class TemperatureContainer : Container
             yield return new WaitForSeconds(currentHeatLossRate);
             Subtract(1);
             thermometer.UpdateThermometer(value);
+            if (value == MIN)
+            {
+                thermometer.EnableFreezingText();
+            }
+            else if (value == maxValue)
+            {
+                thermometer.EnableBurningText();
+            }
+            else
+            {
+                thermometer.DisableTexts();
+            }
         }
     }
 
