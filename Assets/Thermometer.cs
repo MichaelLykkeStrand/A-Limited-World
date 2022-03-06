@@ -10,10 +10,13 @@ public class Thermometer : MonoBehaviour
     [SerializeField] Text freezingText;
     [SerializeField] List<Sprite> thermometerSprites;
     Dictionary<int, Sprite> thermometerDictionary;
+    TemperatureContainer temperatureContainer;
 
 
     private void Awake()
     {
+        temperatureContainer = FindObjectOfType<TemperatureContainer>();
+        temperatureContainer.OnChange += UpdateThermometer;
         thermometerImage = GetComponent<Image>();
         thermometerDictionary = new Dictionary<int, Sprite>();
         for (int i = 0; i < thermometerSprites.Count; i++)
@@ -22,13 +25,31 @@ public class Thermometer : MonoBehaviour
         }
         freezingText.enabled = false;
         burningText.enabled = false;
+        Debug.Log("Dictionary count: " + thermometerDictionary.Count);
     }
 
-    public void UpdateThermometer(int temperature)
+    public void UpdateThermometer()
     {
-        thermometerImage.sprite = thermometerDictionary[temperature];
+        thermometerImage.sprite = thermometerDictionary[temperatureContainer.GetValue()];
+        UpdateTemperatureStatus();
     }
 
+    public void UpdateTemperatureStatus()
+    {
+
+        if (temperatureContainer.GetValue() == 0)
+        {
+            EnableFreezingText();
+        }
+        else if (temperatureContainer.GetValue() >= temperatureContainer.GetMax())
+        {
+            EnableBurningText();
+        }
+        else
+        {
+            DisableTexts();
+        }
+    }
     public void EnableFreezingText() => freezingText.enabled = true;
     public void EnableBurningText() => burningText.enabled = true;
 
@@ -36,5 +57,10 @@ public class Thermometer : MonoBehaviour
     {
         freezingText.enabled = false;
         burningText.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        temperatureContainer.OnChange -= UpdateThermometer;
     }
 }

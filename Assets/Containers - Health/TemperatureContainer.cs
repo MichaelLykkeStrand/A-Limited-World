@@ -9,6 +9,7 @@ public class TemperatureContainer : Container
     [SerializeField] float dayHeatLossRate = 6f;
     private float currentHeatLossRate;
     private DayNightCycle dayNightCycle;
+    public bool beingHeated = false;
 
     protected override void Awake()
     {
@@ -20,10 +21,9 @@ public class TemperatureContainer : Container
     }
     private void Start()
     {
-        maxValue = 12;
         value = 6;
         currentHeatLossRate = dayHeatLossRate;
-        thermometer.UpdateThermometer(value);
+        thermometer.UpdateThermometer();
         StartCoroutine(LoseHeat());
     }
 
@@ -35,22 +35,14 @@ public class TemperatureContainer : Container
         while (true)
         {
             yield return new WaitForSeconds(currentHeatLossRate);
-            Subtract(1);
-            thermometer.UpdateThermometer(value);
-            if (value == MIN)
+            if (!beingHeated)
             {
-                thermometer.EnableFreezingText();
-            }
-            else if (value == maxValue)
-            {
-                thermometer.EnableBurningText();
-            }
-            else
-            {
-                thermometer.DisableTexts();
+                Subtract(1);
+                Debug.Log("Temperature decreased to " + value);
             }
         }
     }
+
 
     private void OnDisable()
     {
