@@ -304,6 +304,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6147768213294611235, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
+      propertyPath: taskActive
+      value: 
+      objectReference: {fileID: 8300000, guid: c3b070e95e30efa4094f793b10e788fb, type: 3}
+    - target: {fileID: 6147768213294611235, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
       propertyPath: maxIdleTime
       value: 15
       objectReference: {fileID: 0}
@@ -311,6 +315,10 @@ PrefabInstance:
       propertyPath: minIdleTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6147768213294611235, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
+      propertyPath: taskComplete
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e1c5d4baa9dfc844b946169310c06ff, type: 3}
     - target: {fileID: 6147768213294611239, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
       propertyPath: m_Name
       value: Filter Task
@@ -378,6 +386,22 @@ PrefabInstance:
     - target: {fileID: 6147768214836197777, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464688709908743629, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464688709908743629, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464688709908743629, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464688709908743629, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536dc4a12eb7a4d488b085edcd5bdbe9, type: 3}
@@ -1223,6 +1247,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1059864973761844532, guid: 9bd228c4d7b6d2247b3063c33a4c0f6b, type: 3}
+      propertyPath: taskActive
+      value: 
+      objectReference: {fileID: 8300000, guid: c3b070e95e30efa4094f793b10e788fb, type: 3}
+    - target: {fileID: 1059864973761844532, guid: 9bd228c4d7b6d2247b3063c33a4c0f6b, type: 3}
       propertyPath: heatingRate
       value: 1
       objectReference: {fileID: 0}
@@ -1233,6 +1261,18 @@ PrefabInstance:
     - target: {fileID: 1059864973761844532, guid: 9bd228c4d7b6d2247b3063c33a4c0f6b, type: 3}
       propertyPath: minIdleTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059864973761844532, guid: 9bd228c4d7b6d2247b3063c33a4c0f6b, type: 3}
+      propertyPath: taskComplete
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e1c5d4baa9dfc844b946169310c06ff, type: 3}
+    - target: {fileID: 6310846907427971849, guid: 9bd228c4d7b6d2247b3063c33a4c0f6b, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6310846907427971849, guid: 9bd228c4d7b6d2247b3063c33a4c0f6b, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd228c4d7b6d2247b3063c33a4c0f6b, type: 3}
@@ -1385,6 +1425,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4946626453553302091, guid: dafeff6bbdfeca940aa1f48b89f5deaf, type: 3}
+      propertyPath: taskActive
+      value: 
+      objectReference: {fileID: 8300000, guid: c3b070e95e30efa4094f793b10e788fb, type: 3}
+    - target: {fileID: 4946626453553302091, guid: dafeff6bbdfeca940aa1f48b89f5deaf, type: 3}
       propertyPath: maxIdleTime
       value: 15
       objectReference: {fileID: 0}
@@ -1392,6 +1436,10 @@ PrefabInstance:
       propertyPath: minIdleTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4946626453553302091, guid: dafeff6bbdfeca940aa1f48b89f5deaf, type: 3}
+      propertyPath: taskComplete
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e1c5d4baa9dfc844b946169310c06ff, type: 3}
     - target: {fileID: 4946626453553302094, guid: dafeff6bbdfeca940aa1f48b89f5deaf, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1488,6 +1536,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7482667652216324306, guid: e05eb8a90f2ff51db8ba16c276bdd22a, type: 3}
+    - target: {fileID: 7172326332700597800, guid: dafeff6bbdfeca940aa1f48b89f5deaf, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172326332700597800, guid: dafeff6bbdfeca940aa1f48b89f5deaf, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dafeff6bbdfeca940aa1f48b89f5deaf, type: 3}
 --- !u!1 &899706882
@@ -37695,7 +37751,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3691517160826661748, guid: b74f514b2965b0d448221c3cf717c2fc, type: 3}
   m_PrefabInstance: {fileID: 3691517160969557619}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069726955}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21ab638df559c3d43ad0b4ffc3ab91ee, type: 3}
@@ -69851,35 +69907,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &2069726955 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3691517160826661512, guid: b74f514b2965b0d448221c3cf717c2fc, type: 3}
-  m_PrefabInstance: {fileID: 3691517160969557619}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2069726956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069726955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a180625cf032d4380cfdcd9266af86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClipLibraries:
-  - libraryName: swings
-    clips:
-    - {fileID: 8300000, guid: ba7493de14d03dd40bc85b6c9315a5d6, type: 3}
-    - {fileID: 8300000, guid: 1208f2f3ff39ca147860b871a916820e, type: 3}
-    - {fileID: 8300000, guid: ad984b2cb3364d34183c3bca7db88e4c, type: 3}
-    - {fileID: 8300000, guid: 84de0ae52ec9c624b82e315d39396356, type: 3}
-    - {fileID: 8300000, guid: 9e5c5f3b747655c4aac40e7ee0b6e9b3, type: 3}
-    - {fileID: 8300000, guid: e9d13e31488e7f94693f0942e127f8b0, type: 3}
-    - {fileID: 8300000, guid: a580558597133cc44af806761ebc5e91, type: 3}
-    - {fileID: 8300000, guid: 0c68e10b5fff2d44cad2107dbb0dfd14, type: 3}
-    - {fileID: 8300000, guid: d8893b4b94dc06548a9779d088e64aca, type: 3}
 --- !u!1001 &1777016592769718609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70027,10 +70054,6 @@ PrefabInstance:
     - target: {fileID: 3691517160826661518, guid: b74f514b2965b0d448221c3cf717c2fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3691517160826661753, guid: b74f514b2965b0d448221c3cf717c2fc, type: 3}
-      propertyPath: maxValue
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3691517160826661753, guid: b74f514b2965b0d448221c3cf717c2fc, type: 3}
       propertyPath: thermometer
