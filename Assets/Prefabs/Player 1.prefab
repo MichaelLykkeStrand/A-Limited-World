@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 3691517160826661754}
   - component: {fileID: 3691517160826661755}
   - component: {fileID: 3691517160826661753}
+  - component: {fileID: 2069726956}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -368,6 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxValue: 20
   value: 10
+  temperatureHealthLossRate: 2
 --- !u!114 &3691517160826661754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,8 +411,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db168d62310d0f54da4700d9ce774a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 12
+  maxValue: 11
   value: 6
   thermometer: {fileID: 0}
   nightHeatLossRate: 3
   dayHeatLossRate: 6
+  beingHeated: 0
+--- !u!114 &2069726956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691517160826661512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a180625cf032d4380cfdcd9266af86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipLibraries:
+  - libraryName: swings
+    clips:
+    - {fileID: 8300000, guid: ba7493de14d03dd40bc85b6c9315a5d6, type: 3}
+    - {fileID: 8300000, guid: 1208f2f3ff39ca147860b871a916820e, type: 3}
+    - {fileID: 8300000, guid: ad984b2cb3364d34183c3bca7db88e4c, type: 3}
+    - {fileID: 8300000, guid: 84de0ae52ec9c624b82e315d39396356, type: 3}
+    - {fileID: 8300000, guid: 9e5c5f3b747655c4aac40e7ee0b6e9b3, type: 3}
+    - {fileID: 8300000, guid: e9d13e31488e7f94693f0942e127f8b0, type: 3}
+    - {fileID: 8300000, guid: a580558597133cc44af806761ebc5e91, type: 3}
+    - {fileID: 8300000, guid: 0c68e10b5fff2d44cad2107dbb0dfd14, type: 3}
+    - {fileID: 8300000, guid: d8893b4b94dc06548a9779d088e64aca, type: 3}

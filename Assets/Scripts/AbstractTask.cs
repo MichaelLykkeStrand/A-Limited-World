@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class AbstractTask : MonoBehaviour
 {
     [SerializeField] GameObject task;
     [SerializeField] float interactableRadius = 2f;
     [SerializeField] float minIdleTime = 5f;
     [SerializeField] float maxIdleTime = 10f;
+    [SerializeField] AudioClip taskActive;
+    [SerializeField] AudioClip taskComplete;
+    protected AudioSource audioSource;
+
     private float timeSinceTaskCompleted = 0;
     private float randomIdleTime;
     public bool TaskActive { get; protected set; } = false;
@@ -20,6 +25,7 @@ public abstract class AbstractTask : MonoBehaviour
 
     protected virtual void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         taskCallback = GameObject.FindGameObjectWithTag("Player").GetComponent<ITaskCallback>();
         task.SetActive(false);
@@ -34,6 +40,7 @@ public abstract class AbstractTask : MonoBehaviour
         if (timeSinceTaskCompleted >= randomIdleTime && !TaskActive)
         {
             TaskActive = true;
+            audioSource.PlayOneShot(taskActive);
             taskCallback.OnActiveTask(this);
         }
 
@@ -74,6 +81,7 @@ public abstract class AbstractTask : MonoBehaviour
         taskCallback.OnCompleteTask(this);
         TaskActive = false;
         timeSinceTaskCompleted = 0;
+        audioSource.PlayOneShot(taskComplete);
     }
 
     public virtual void Reset()
