@@ -36,11 +36,12 @@ public class GameManager : MonoBehaviour
         { 
             UpdateGameState(GameState.Menu); 
         }
-        if (SceneManager.GetActiveScene().name == "Main")
+        else
         {
             UpdateGameState(GameState.Core);
             HideRunTimeCanvases();
         }
+
         StartCoroutine(fader.FadeOutElement(darknessCanvas, 1));
     }
 
