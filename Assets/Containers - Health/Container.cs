@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class Container : MonoBehaviour
 {
-    [SerializeField] private int maxValue, value;
+    [SerializeField] protected int maxValue, value;
     public const int MIN = 0;
     public event Action OnEmpty;
     public event Action OnChange;

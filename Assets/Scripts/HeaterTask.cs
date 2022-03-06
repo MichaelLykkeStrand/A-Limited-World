@@ -10,13 +10,37 @@ public class HeaterTask : AbstractTask
     [SerializeField] Sprite coldHeater;
     [SerializeField] Sprite hotHeater;
     [SerializeField] Dragger dragger;
+    [SerializeField] float heatRadius = 4f;
     private bool placed = false;
-    
+    TemperatureContainer playerTemperature;
+    [SerializeField] float heatingRate = 2f;
+    private float timeSincePlayerHeated = Mathf.Infinity;
+
+    private void Start()
+    {
+        playerTemperature = player.gameObject.GetComponent<TemperatureContainer>();
+    }
+
     public void OnFusePlaced()
     {
         if (placed) { return; }
         StartCoroutine(DisplayHotHeaterForTime());
         placed = true;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (InHeatingRange())
+        {
+            timeSincePlayerHeated += Time.deltaTime;
+            if (timeSincePlayerHeated > heatingRate)
+            {
+                playerTemperature.Add(1);
+                timeSincePlayerHeated = 0;
+            }
+            
+        }
     }
 
     private IEnumerator DisplayHotHeaterForTime()
@@ -32,4 +56,7 @@ public class HeaterTask : AbstractTask
         dragger.ResetPosition();
         placed = false;
     }
+
+    private bool InHeatingRange() => Vector2.Distance(transform.position, player.position) <= heatRadius && !TaskActive;
 }
+ 
