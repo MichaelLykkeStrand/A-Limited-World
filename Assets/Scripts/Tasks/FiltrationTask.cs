@@ -49,11 +49,11 @@ public class FiltrationTask : AbstractTask
         filterImage.sprite = filterOff;
         if (dirtyWater.fillAmount < 1)
         {
-            dirtyWater.fillAmount += Time.deltaTime;
+            dirtyWater.fillAmount += 0.2f * Time.deltaTime;
         }
         if (cleanWater.fillAmount > 0)
         {
-            cleanWater.fillAmount -= Time.deltaTime;
+            cleanWater.fillAmount -= 0.2f * Time.deltaTime;
         }
     }
 
@@ -62,11 +62,11 @@ public class FiltrationTask : AbstractTask
         filterImage.sprite = filterOn;
         if (dirtyWater.fillAmount > 0)
         {
-            dirtyWater.fillAmount -= Time.deltaTime;
+            dirtyWater.fillAmount -= 0.2f * Time.deltaTime;
         }
         if (cleanWater.fillAmount < 1)
         {
-            cleanWater.fillAmount += Time.deltaTime;
+            cleanWater.fillAmount += 0.2f * Time.deltaTime;
         }
     }
 

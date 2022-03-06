@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 3691517160826661755}
   - component: {fileID: 3691517160826661753}
   - component: {fileID: 2069726956}
+  - component: {fileID: 3691517160969557621}
+  - component: {fileID: 3691517160969557622}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -368,8 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxValue: 20
-  value: 10
-  temperatureHealthLossRate: 2
+  value: 20
 --- !u!114 &3691517160826661754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +386,7 @@ MonoBehaviour:
   range: 0.9
   damage: 10
   cooldown: 0.3
+  attackRadius: 0.5
 --- !u!114 &3691517160826661755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackAnimationPrefab: {fileID: 5532761391594913413, guid: 37df87f2478f68656902aa635b043a34, type: 3}
-  attackRadius: 0.5
 --- !u!114 &3691517160826661753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +417,7 @@ MonoBehaviour:
   thermometer: {fileID: 0}
   nightHeatLossRate: 3
   dayHeatLossRate: 6
+  temperatureHealthLossRate: 2
   beingHeated: 0
 --- !u!114 &2069726956
 MonoBehaviour:
@@ -430,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipLibraries:
-  - libraryName: swings
+  - libraryName: WeaponUse
     clips:
     - {fileID: 8300000, guid: ba7493de14d03dd40bc85b6c9315a5d6, type: 3}
     - {fileID: 8300000, guid: 1208f2f3ff39ca147860b871a916820e, type: 3}
@@ -441,3 +443,27 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a580558597133cc44af806761ebc5e91, type: 3}
     - {fileID: 8300000, guid: 0c68e10b5fff2d44cad2107dbb0dfd14, type: 3}
     - {fileID: 8300000, guid: d8893b4b94dc06548a9779d088e64aca, type: 3}
+--- !u!114 &3691517160969557621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691517160826661512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a7db9cdb3674af98158db5188e3445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3691517160969557622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691517160826661512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8938d04f33176e44e868ee8e8ba7935a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
