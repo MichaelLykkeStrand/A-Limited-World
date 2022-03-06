@@ -14,7 +14,7 @@ public abstract class AbstractTask : MonoBehaviour
     public bool TaskActive { get; protected set; } = false;
     public bool MovementRequired { get; protected set; } = false;
     private ITaskCallback taskCallback;
-    private Transform player;
+    protected Transform player;
 
     private bool playerAlreadyInRange = false;
 
