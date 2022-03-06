@@ -36,12 +36,11 @@ public class Thermometer : MonoBehaviour
 
     public void UpdateTemperatureStatus()
     {
-
-        if (temperatureContainer.GetValue() == 0)
+        if (temperatureContainer.freezing)
         {
             EnableFreezingText();
         }
-        else if (temperatureContainer.GetValue() >= temperatureContainer.GetMax())
+        else if (temperatureContainer.burning)
         {
             EnableBurningText();
         }

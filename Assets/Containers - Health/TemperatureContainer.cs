@@ -10,6 +10,8 @@ public class TemperatureContainer : Container
     private float currentHeatLossRate;
     private DayNightCycle dayNightCycle;
     public bool beingHeated = false;
+    public bool freezing { get; private set; } = false;
+    public bool burning { get; private set; } = false;
 
     protected override void Awake()
     {
@@ -43,6 +45,34 @@ public class TemperatureContainer : Container
         }
     }
 
+    public override void Add(int addValue)
+    {
+        base.Add(addValue);
+        UpdateTemperatureStatus();
+    }
+
+    public override void Subtract(int subValue)
+    {
+        base.Subtract(subValue);
+        UpdateTemperatureStatus();
+    }
+
+    private void UpdateTemperatureStatus()
+    {
+        if (value == 0)
+        {
+            freezing = true;
+        }
+        else if (value >= maxValue)
+        {
+            burning = true;
+        }
+        else
+        {
+            freezing = false;
+            burning = false;
+        }
+    }
 
     private void OnDisable()
     {

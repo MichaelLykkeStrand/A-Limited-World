@@ -10,6 +10,12 @@ public class MeleeWeaponController : MonoBehaviour
     private MeleeWeapon meleWeapon;
     [SerializeField] private GameObject attackAnimationPrefab;
     [SerializeField] private float attackRadius = 0.5f;
+    private RandomAudioPlayer randomAudioPlayer;
+
+    private void Awake()
+    {
+        randomAudioPlayer = GetComponent<RandomAudioPlayer>();
+    }
     void Start()
     {
         meleWeapon = GetComponent<MeleeWeapon>();
@@ -39,6 +45,7 @@ public class MeleeWeaponController : MonoBehaviour
                 } 
             }
             meleWeapon.Attack();
+            randomAudioPlayer.Play("swings");
             StartCoroutine(CooldownCoroutine());
         }
     }

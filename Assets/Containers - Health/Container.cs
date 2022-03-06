@@ -30,14 +30,14 @@ public abstract class Container : MonoBehaviour
         return this.maxValue;
     }
 
-    public void Add(int addValue)
+    public virtual void Add(int addValue)
     {
         this.value = Mathf.Clamp(value + addValue, MIN, this.maxValue);
         OnIncrease?.Invoke();
         OnChange?.Invoke();
     }
 
-    public void Subtract(int subValue){
+    public virtual void Subtract(int subValue){
         this.value = Mathf.Clamp(value - subValue, MIN, this.maxValue);
         if (value <= MIN)
         {
