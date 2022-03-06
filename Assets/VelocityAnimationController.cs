@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class PlayerAnimationController : MonoBehaviour
+
+[RequireComponent(typeof(SpriteRenderer),typeof(Animator))]
+public class VelocityAnimationController : MonoBehaviour
 {
     Vector3 prevPos, velocity;
     private SpriteRenderer spriteRenderer;
