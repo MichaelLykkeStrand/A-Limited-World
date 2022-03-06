@@ -34,7 +34,9 @@ public class MeleeWeaponController : MonoBehaviour
             foreach(var hit in hits){
                 if(hit.transform == this) continue;
                 HealthContainer health = hit.transform.GetComponent<HealthContainer>();
-                health.Subtract(meleWeapon.GetDamage());
+                if(health != null){
+                    health.Subtract(meleWeapon.GetDamage());
+                } 
             }
             meleWeapon.Attack();
             StartCoroutine(CooldownCoroutine());
