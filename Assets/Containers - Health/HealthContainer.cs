@@ -6,11 +6,6 @@ public class HealthContainer : Container
 {
     private bool isDead = false;
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     private void Update()
     {
         if (isDead || GameManager.Instance.State != GameState.Core) { return; }

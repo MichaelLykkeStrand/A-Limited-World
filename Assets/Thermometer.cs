@@ -25,7 +25,6 @@ public class Thermometer : MonoBehaviour
         }
         freezingText.enabled = false;
         burningText.enabled = false;
-        Debug.Log("Dictionary count: " + thermometerDictionary.Count);
     }
 
     public void UpdateThermometer()

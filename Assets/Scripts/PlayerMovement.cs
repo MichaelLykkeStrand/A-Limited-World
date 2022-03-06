@@ -18,8 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.State != GameState.Core) { return; }
-        if (canMove)
+        if (canMove && GameManager.Instance.State == GameState.Core)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");

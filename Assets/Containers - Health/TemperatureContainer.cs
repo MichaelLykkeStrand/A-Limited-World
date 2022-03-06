@@ -43,7 +43,7 @@ public class TemperatureContainer : Container
             yield return new WaitForSeconds(currentHeatLossRate);
             if (!beingHeated)
             {
-                health.Subtract(1);
+                Subtract(1);
             }
         }
     }
@@ -55,7 +55,7 @@ public class TemperatureContainer : Container
             timeSinceTemperatureHealthLoss += Time.deltaTime;
             if (timeSinceTemperatureHealthLoss >= temperatureHealthLossRate)
             {
-                Subtract(1);
+                health.Subtract(1);
                 timeSinceTemperatureHealthLoss = 0;
             }
         }
