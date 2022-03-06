@@ -38,7 +38,6 @@ public class HeaterTask : AbstractTask
             {
                 playerTemperature.Add(1);
                 timeSincePlayerHeated = 0;
-                Debug.Log("Temperature increased to " + playerTemperature.GetValue());
             }
             playerTemperature.beingHeated = true;
         } else { playerTemperature.beingHeated = false; }
