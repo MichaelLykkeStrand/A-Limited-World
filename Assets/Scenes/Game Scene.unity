@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -37512,6 +37512,9 @@ GameObject:
   - component: {fileID: 948813061}
   - component: {fileID: 948813062}
   - component: {fileID: 948813054}
+  - component: {fileID: 948813063}
+  - component: {fileID: 948813065}
+  - component: {fileID: 948813064}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -37843,6 +37846,49 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &948813063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948813051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ab638df559c3d43ad0b4ffc3ab91ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 20
+  value: 10
+--- !u!114 &948813064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948813051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b04cf7162cccb79f96cd8a171282c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAnimationPrefab: {fileID: 5532761391594913413, guid: 37df87f2478f68656902aa635b043a34, type: 3}
+  attackRadius: 0.5
+--- !u!114 &948813065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948813051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c1b5b6c1b7737ca8638dc709f2c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0.9
+  damage: 10
+  cooldown: 0.3
 --- !u!1 &1066189665
 GameObject:
   m_ObjectHideFlags: 0
@@ -38438,6 +38484,8 @@ GameObject:
   - component: {fileID: 1533080179}
   - component: {fileID: 1533080181}
   - component: {fileID: 1533080180}
+  - component: {fileID: 1533080182}
+  - component: {fileID: 1533080183}
   m_Layer: 0
   m_Name: Walkables
   m_TagString: Untagged
@@ -67311,6 +67359,35 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1533080182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533080178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c1b5b6c1b7737ca8638dc709f2c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 3
+  damage: 10
+  cooldown: 0.3
+--- !u!114 &1533080183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533080178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b04cf7162cccb79f96cd8a171282c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackAnimationPrefab: {fileID: 0}
+  attackRadius: 0.5
 --- !u!1 &1551222773
 GameObject:
   m_ObjectHideFlags: 0

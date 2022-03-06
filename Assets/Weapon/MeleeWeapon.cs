@@ -2,9 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleWeapon : Weapon
+public class MeleeWeapon : Weapon
 {
-    [SerializeField] public float range {get; protected set;}
-    [SerializeField] public int damage {get; protected set;}
-    [SerializeField] public float cooldown {get; protected set;}
+    [SerializeField] protected float range;
+    [SerializeField] protected int damage;
+    [SerializeField] protected float cooldown;
+
+    public float GetRange()
+    {
+        return range;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    public float GetCooldownTime(){
+        return cooldown;
+    }
 }

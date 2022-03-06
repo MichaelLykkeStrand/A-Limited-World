@@ -6,35 +6,34 @@ using UnityEngine;
 public class MeleeWeaponController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private bool isOnCooldown = true;
-    private MeleWeapon meleWeapon;
-    private GameObject attackAnimationPrefab;
+    private bool isOnCooldown = false;
+    private MeleeWeapon meleWeapon;
+    [SerializeField] private GameObject attackAnimationPrefab;
     [SerializeField] private float attackRadius = 0.5f;
     void Start()
     {
-        meleWeapon = GetComponent<MeleWeapon>();
+        meleWeapon = GetComponent<MeleeWeapon>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && !isOnCooldown)
+        if (Input.GetMouseButtonDown(0) && !isOnCooldown)
         {
             //Get the position of this object in screen-coordinates
             Vector3 posInScreen = Camera.main.WorldToScreenPoint(this.transform.position);
             Vector3 dirToMouse = Input.mousePosition - posInScreen;
-            float zRotation = Mathf.Atan2(dirToMouse.y, dirToMouse.x)*Mathf.Rad2Deg;
             dirToMouse.Normalize();
-            Vector3 spawnPos = transform.position+(dirToMouse * meleWeapon.range);
+            Vector3 spawnPos = transform.position+(dirToMouse * meleWeapon.GetRange());
             //Spawn attack object - Animation object
             GameObject attackObject = Instantiate(attackAnimationPrefab);
             attackObject.transform.position = spawnPos;
-            
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRadius,dirToMouse,meleWeapon.range);
+            attackObject.transform.right = (Vector2)spawnPos - (Vector2)transform.position;
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRadius,dirToMouse,meleWeapon.GetRange());
             foreach(var hit in hits){
                 if(hit.transform == this) continue;
                 HealthContainer health = hit.transform.GetComponent<HealthContainer>();
-                health.Subtract(meleWeapon.damage);
+                health.Subtract(meleWeapon.GetDamage());
             }
             meleWeapon.Attack();
             StartCoroutine(CooldownCoroutine());
@@ -43,8 +42,8 @@ public class MeleeWeaponController : MonoBehaviour
 
     IEnumerator CooldownCoroutine()
     {
-        isOnCooldown = false;
-        yield return new WaitForSeconds(meleWeapon.cooldown);
         isOnCooldown = true;
+        yield return new WaitForSeconds(meleWeapon.GetCooldownTime());
+        isOnCooldown = false;
     }
 }
