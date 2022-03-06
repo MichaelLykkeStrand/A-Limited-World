@@ -1,5 +1,106 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &27902779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27902780}
+  - component: {fileID: 27902783}
+  - component: {fileID: 27902782}
+  - component: {fileID: 27902781}
+  m_Layer: 5
+  m_Name: thermometer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &27902780
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27902779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2653834186027491875}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -150}
+  m_SizeDelta: {x: 100, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &27902783
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27902779}
+  m_CullTransparentMesh: 1
+--- !u!114 &27902782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27902779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &27902781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27902779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7f084311a431e4d91e1834dad3b947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thermometerSprites:
+  - {fileID: -3546550533097053130, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 5036679415448596596, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: -6434193298055473683, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 8334548891143091822, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: -3392373839055174520, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 2706724978305670459, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 4186808511206620389, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 1531199289956804063, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 3109314299482774577, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 7982533210544089259, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: -8221706348056765093, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
+  - {fileID: 6407865413795378183, guid: 036df134b4ba31593b4d88311d64adbd, type: 3}
 --- !u!1 &1579094508
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +346,7 @@ RectTransform:
   m_Children:
   - {fileID: 2653834185267274911}
   - {fileID: 1579094509}
+  - {fileID: 27902780}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
