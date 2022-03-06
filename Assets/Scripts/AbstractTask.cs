@@ -12,7 +12,7 @@ public abstract class AbstractTask : MonoBehaviour
     [SerializeField] float maxIdleTime = 10f;
     [SerializeField] AudioClip taskActive;
     [SerializeField] AudioClip taskComplete;
-    private AudioSource audioSource;
+    protected AudioSource audioSource;
 
     private float timeSinceTaskCompleted = 0;
     private float randomIdleTime;

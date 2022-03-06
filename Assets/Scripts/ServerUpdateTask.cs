@@ -10,6 +10,7 @@ public class ServerUpdateTask : AbstractTask
     [SerializeField] Button updateButton;
     [SerializeField] float updateSpeed = 0.2f;
     [SerializeField] float baseServerVersion = 1.4f;
+    [SerializeField] AudioClip serverNoise;
     float serverVersion;
     bool serverUpdating = false;
 
@@ -35,6 +36,7 @@ public class ServerUpdateTask : AbstractTask
 
     private IEnumerator UpdateServer()
     {
+        audioSource.PlayOneShot(serverNoise);
         while (progressBar.fillAmount < 1)
         {
             progressBar.fillAmount += (Time.deltaTime * updateSpeed);
