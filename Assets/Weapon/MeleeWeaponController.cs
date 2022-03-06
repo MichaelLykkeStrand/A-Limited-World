@@ -29,6 +29,7 @@ public class MeleeWeaponController : MonoBehaviour
             GameObject attackObject = Instantiate(attackAnimationPrefab);
             attackObject.transform.position = spawnPos;
             attackObject.transform.right = (Vector2)spawnPos - (Vector2)transform.position;
+            attackObject.transform.parent = this.transform;
             RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRadius,dirToMouse,meleWeapon.GetRange());
             foreach(var hit in hits){
                 if(hit.transform == this) continue;
