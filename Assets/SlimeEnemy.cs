@@ -18,9 +18,9 @@ public class SlimeEnemy : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(Vector2.Distance(transform.position, target.position) <= weapon.GetRange()){
+        if(Vector2.Distance(transform.position, target.position) <= weapon.GetRange()+0.5f){
             weaponController.Attack(target.position);
         }
     }
