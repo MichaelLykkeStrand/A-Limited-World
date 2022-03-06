@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4800767453748879599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.4, y: 50.63, z: -0.17578125}
+  m_LocalPosition: {x: 0.85, y: 35.43, z: -0.17578125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4800767454531635928}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4800767453800984154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.54, y: 41.08, z: -0.17578125}
+  m_LocalPosition: {x: -23.54, y: 31.23, z: -0.17578125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4800767454531635928}
@@ -174,6 +174,6 @@ MonoBehaviour:
   - {fileID: 4800767453561931500}
   spawnablePrefabs:
   - {fileID: 0}
-  respawnTime: 3
+  respawnTime: 6
   maxEntities: 20
   spawnTag: Enemy

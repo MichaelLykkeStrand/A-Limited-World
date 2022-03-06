@@ -13,6 +13,7 @@ public class ServerUpdateTask : AbstractTask
     [SerializeField] AudioClip serverNoise;
     float serverVersion;
     bool serverUpdating = false;
+    public bool serverOnline { get; private set; }
 
     protected override void Awake()
     {
@@ -26,6 +27,7 @@ public class ServerUpdateTask : AbstractTask
     {
         base.Update();
         updateButton.interactable = !serverUpdating;
+        serverOnline = !TaskActive;
     }
 
     public void OnUpdateButtonPress()

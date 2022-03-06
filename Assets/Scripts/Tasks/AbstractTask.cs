@@ -8,8 +8,8 @@ public abstract class AbstractTask : MonoBehaviour
 {
     [SerializeField] GameObject task;
     [SerializeField] float interactableRadius = 2f;
-    [SerializeField] float minIdleTime = 5f;
-    [SerializeField] float maxIdleTime = 10f;
+    [SerializeField] protected float minIdleTime = 5f;
+    [SerializeField] protected float maxIdleTime = 10f;
     [SerializeField] AudioClip taskActive;
     [SerializeField] AudioClip taskComplete;
     protected AudioSource audioSource;

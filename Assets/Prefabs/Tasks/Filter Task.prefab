@@ -127,16 +127,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 6147768213650724221}
   interactableRadius: 2
-  minIdleTime: 5
-  maxIdleTime: 10
-  taskActive: {fileID: 0}
-  taskComplete: {fileID: 0}
+  minIdleTime: 15
+  maxIdleTime: 20
+  taskActive: {fileID: 8300000, guid: c3b070e95e30efa4094f793b10e788fb, type: 3}
+  taskComplete: {fileID: 8300000, guid: 6e1c5d4baa9dfc844b946169310c06ff, type: 3}
   holdButton: {fileID: 6147768213705618924}
   filterImage: {fileID: 6147768214580117326}
   filterOff: {fileID: 21300000, guid: d0f8a428e61846740a092072ddc15355, type: 3}
   filterOn: {fileID: 21300000, guid: 328ad6be04b56cc40867519b99ecbdfc, type: 3}
   dirtyWater: {fileID: 6147768214107502479}
   cleanWater: {fileID: 6147768214516613246}
+  serverOfflineMinIdleTime: 5
+  serverOfflineMaxIdleTime: 10
 --- !u!82 &7464688709908743629
 AudioSource:
   m_ObjectHideFlags: 0
@@ -149,7 +151,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -193,7 +195,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -208,7 +210,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -401,8 +403,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: e05eb8a90f2ff51db8ba16c276bdd22a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -457,8 +459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 0, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6147768213912606157
 CanvasRenderer:
@@ -489,12 +491,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 65
+    m_Font: {fileID: 12800000, guid: 038a607fbf46a7c40a6d7b96e039cfd9, type: 3}
+    m_FontSize: 42
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 65
+    m_MinSize: 0
+    m_MaxSize: 106
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -949,7 +951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 7482667652216324306, guid: e05eb8a90f2ff51db8ba16c276bdd22a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1081,12 +1083,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 038a607fbf46a7c40a6d7b96e039cfd9, type: 3}
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 261
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

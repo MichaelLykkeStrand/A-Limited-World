@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class FiltrationTask : AbstractTask
 {
@@ -11,17 +12,25 @@ public class FiltrationTask : AbstractTask
     [SerializeField] Sprite filterOn;
     [SerializeField] Image dirtyWater;
     [SerializeField] Image cleanWater;
+    [SerializeField] float serverOfflineMinIdleTime = 5f;
+    [SerializeField] float serverOfflineMaxIdleTime = 10f;
     bool filtrationComplete = false;
+    private ServerUpdateTask server;
+    public static Action waterSupplied;
+
 
     protected override void Awake()
     {
         base.Awake();
+        server = FindObjectOfType<ServerUpdateTask>();
         dirtyWater.fillAmount = 1;
         cleanWater.fillAmount = 0;
     }
     protected override void Update()
     {
         base.Update();
+        minIdleTime = server.serverOnline ? minIdleTime : serverOfflineMinIdleTime;
+        maxIdleTime = server.serverOnline ? maxIdleTime : serverOfflineMaxIdleTime;
         if (!TaskActive) { return; }
         if (holdButton.pointerDown)
         {
@@ -40,6 +49,7 @@ public class FiltrationTask : AbstractTask
         if (cleanWater.fillAmount >= 1 && !filtrationComplete)
         {
             filtrationComplete = true;
+            waterSupplied?.Invoke();
             Complete();
         }
     }

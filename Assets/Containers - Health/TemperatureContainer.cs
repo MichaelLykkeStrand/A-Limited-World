@@ -50,6 +50,7 @@ public class TemperatureContainer : Container
 
     private void Update()
     {
+        if (GameManager.Instance.State != GameState.Core) { return; }
         if (burning || freezing)
         {
             timeSinceTemperatureHealthLoss += Time.deltaTime;
