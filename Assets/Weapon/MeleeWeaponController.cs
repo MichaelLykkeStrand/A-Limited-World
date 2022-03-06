@@ -24,6 +24,7 @@ public class MeleeWeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.State != GameState.Core) { return; }
         if (Input.GetMouseButtonDown(0) && !isOnCooldown)
         {
             //Get the position of this object in screen-coordinates
