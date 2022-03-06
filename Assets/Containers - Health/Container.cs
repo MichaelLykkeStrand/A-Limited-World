@@ -13,7 +13,7 @@ public abstract class Container : MonoBehaviour
     public event Action OnDecrease;
     public event Action OnIncrease;
     
-    void Awake()
+    protected virtual void Awake()
     {
         if (this.value > this.maxValue)
         {
