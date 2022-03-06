@@ -32,7 +32,7 @@ public class MeleeWeaponController : MonoBehaviour
             attackObject.transform.parent = this.transform;
             RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRadius,dirToMouse,meleWeapon.GetRange());
             foreach(var hit in hits){
-                if(hit.transform == this) continue;
+                if(hit.transform == this.transform) continue;
                 HealthContainer health = hit.transform.GetComponent<HealthContainer>();
                 if(health != null){
                     health.Subtract(meleWeapon.GetDamage());
