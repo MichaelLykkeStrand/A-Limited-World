@@ -9,7 +9,9 @@ public class WaterFountain : MonoBehaviour
     [SerializeField] GameObject useButtonObj;
     [SerializeField] float interactableRadius = 2f;
     [SerializeField] HealthContainer health;
-    [SerializeField] Text outOfWaterText;
+    [SerializeField] Text statusText;
+    private string outOfWaterMessage = "Out of water!";
+    private string drinkWaterMessage = "Drink to heal!";
     [SerializeField] float cooldown = 10f;
     private FiltrationTask[] pumps;
     Button drinkButton;
@@ -26,7 +28,6 @@ public class WaterFountain : MonoBehaviour
         drinkButton = drinkButtonObj.GetComponent<Button>();
         drinkButton.onClick.AddListener(Drink);
         drinkButtonObj.SetActive(false);
-        outOfWaterText.enabled = false;
         SetStatus();
     }
 
@@ -35,6 +36,13 @@ public class WaterFountain : MonoBehaviour
         drinkButtonObj.SetActive(InRangeOfPlayer());
         drinkButton.interactable = !outOfWater && canUse;
         useButtonObj.SetActive(!InRangeOfPlayer());
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
+        {
+            if (InRangeOfPlayer())
+            {
+                Drink();
+            }
+        }
         SetStatus();
     }
 
@@ -62,7 +70,8 @@ public class WaterFountain : MonoBehaviour
             if (!pump.TaskActive) { count++; }
         }
         healthToGain = count * 5;
-        outOfWaterText.enabled = count == 0 || !canUse;
+        statusText.text = count == 0 || !canUse ? outOfWaterMessage : drinkWaterMessage;
+        statusText.color = count == 0 || !canUse ? Color.red : Color.cyan;
         outOfWater = count == 0;
     }
     private bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius;

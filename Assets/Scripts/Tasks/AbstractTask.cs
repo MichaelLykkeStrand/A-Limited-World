@@ -7,7 +7,7 @@ using System;
 public abstract class AbstractTask : MonoBehaviour
 {
     [SerializeField] GameObject task;
-    [SerializeField] float interactableRadius = 2f;
+    [SerializeField] protected float interactableRadius = 2f;
     [SerializeField] protected float minIdleTime = 5f;
     [SerializeField] protected float maxIdleTime = 10f;
     [SerializeField] protected AudioClip taskActive;
@@ -94,5 +94,5 @@ public abstract class AbstractTask : MonoBehaviour
         
     }
 
-    private bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius && TaskActive;
+    public virtual bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius && TaskActive;
 }

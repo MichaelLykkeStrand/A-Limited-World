@@ -101,4 +101,6 @@ public class FiltrationTask : AbstractTask
         filterImage.sprite = filterOff;
         filtrationComplete = false;
     }
+
+    public override bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius && TaskActive && server.serverOnline;
 }

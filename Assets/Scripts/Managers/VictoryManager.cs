@@ -17,6 +17,7 @@ public class VictoryManager : MonoBehaviour
 
     private void CountDay()
     {
+        if (GameManager.Instance.State != GameState.Core) { return; }
         daysPassed++;
         if (daysPassed >= daysToWin && !victorious)
         {

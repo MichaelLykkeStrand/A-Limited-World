@@ -14,7 +14,14 @@ public class HeaterTask : AbstractTask
     private bool placed = false;
     TemperatureContainer playerTemperature;
     [SerializeField] float heatingRate = 2f;
+    ServerUpdateTask server;
     private float timeSincePlayerHeated = Mathf.Infinity;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        server = FindObjectOfType<ServerUpdateTask>();
+    }
 
     private void Start()
     {
@@ -56,7 +63,7 @@ public class HeaterTask : AbstractTask
         dragger.ResetPosition();
         placed = false;
     }
-
+    public override bool InRangeOfPlayer() => Vector2.Distance(transform.position, player.position) <= interactableRadius && TaskActive && server.serverOnline;
     private bool InHeatingRange() => Vector2.Distance(transform.position, player.position) <= heatRadius && !TaskActive;
 }
  

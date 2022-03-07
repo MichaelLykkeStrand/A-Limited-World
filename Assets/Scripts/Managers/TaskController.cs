@@ -44,12 +44,26 @@ public class TaskController : MonoBehaviour, ITaskCallback
     void Update()
     {
         useButton.interactable = activeTasksInRange.Count > 0;
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q)) 
+        {
+            if (taskOpen && closestTask != null)
+            {
+                closestTask.Close();
+                taskOpen = false;
+            }
+            else
+            {
+                OpenClosestTask();
+            }
+            
+        }
     }
 
     private void OpenClosestTask()
     {
         if (taskOpen) { return; }
         SetClosestTask();
+        if (closestTask == null || !closestTask.InRangeOfPlayer()) { return; }
         closestTask.Open();
         taskOpen = true;
     }
