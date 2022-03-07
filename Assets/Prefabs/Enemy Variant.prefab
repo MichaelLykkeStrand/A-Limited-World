@@ -19,17 +19,25 @@ PrefabInstance:
       propertyPath: audioClipLibraries.Array.data[0].libraryName
       value: WeaponUse
       objectReference: {fileID: 0}
+    - target: {fileID: 4493958131109824453, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+      propertyPath: audioClipLibraries.Array.data[0].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493958131109824453, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+      propertyPath: audioClipLibraries.Array.data[0].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba7493de14d03dd40bc85b6c9315a5d6, type: 3}
     - target: {fileID: 6681277616346126186, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6681277616346126186, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.262153
+      value: -13.95
       objectReference: {fileID: 0}
     - target: {fileID: 6681277616346126186, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.587103
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 6681277616346126186, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63,13 +71,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6681277616346126189, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+      propertyPath: range
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681277616346126189, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681277616346126189, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+      propertyPath: cooldown
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6681277616346126198, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
       propertyPath: m_Name
       value: Enemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7594636611114710152, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+      propertyPath: attackAnimationPrefab
+      value: 
+      objectReference: {fileID: 5532761391594913413, guid: 37df87f2478f68656902aa635b043a34, type: 3}
     - target: {fileID: 8418605083729847992, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+--- !u!1 &8272307340873001071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6681277616346126198, guid: ca80bbf9e709f9618ba833d6620bdaa8, type: 3}
+  m_PrefabInstance: {fileID: 3347732691998162713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &931862027306214227
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272307340873001071}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.34
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.88
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4

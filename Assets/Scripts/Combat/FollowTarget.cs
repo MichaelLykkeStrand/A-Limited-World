@@ -1,26 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class FollowTarget : MonoBehaviour
 {
 
-    [SerializeField] private Transform target;
+    private Transform target;
     [SerializeField] private float moveSpeed = 3;
+    [SerializeField] NavMeshQueryFilter filter;
+    private NavMeshAgent agent;
     private Rigidbody2D rb;
+    protected Transform player;
+    public bool ready = false;
+    private MeleeWeapon weapon;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        weapon = GetComponent<MeleeWeapon>();
+        target = player;
+        if (agent.enabled && !agent.isOnNavMesh)
+        {
+            var position = transform.position;
+            NavMeshHit hit;
+            NavMesh.SamplePosition(position, out hit, 10.0f, 0);
+            position = hit.position; // usually this barely changes, if at all
+            agent.Warp(position);
+        }
+        agent.stoppingDistance = weapon.GetRange();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        if(!Physics2D.Linecast(transform.position,target.position)) return;
-        Vector2 moveDir = target.position - transform.position;
-        rb.MovePosition(rb.position + (moveSpeed * Time.fixedDeltaTime * moveDir.normalized));
+        if (ready)
+        {
+            agent.SetDestination(player.position);
+        }
     }
 
     public Transform GetTarget(){

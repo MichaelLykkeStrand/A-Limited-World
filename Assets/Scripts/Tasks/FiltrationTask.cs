@@ -15,6 +15,7 @@ public class FiltrationTask : AbstractTask
     [SerializeField] float serverOfflineMinIdleTime = 5f;
     [SerializeField] float serverOfflineMaxIdleTime = 10f;
     bool filtrationComplete = false;
+    private WaterFountain waterFountain;
     private ServerUpdateTask server;
     public static Action waterSupplied;
 
@@ -23,6 +24,7 @@ public class FiltrationTask : AbstractTask
     {
         base.Awake();
         server = FindObjectOfType<ServerUpdateTask>();
+        waterFountain = FindObjectOfType<WaterFountain>();
         dirtyWater.fillAmount = 1;
         cleanWater.fillAmount = 0;
     }
@@ -54,16 +56,28 @@ public class FiltrationTask : AbstractTask
         }
     }
 
+    protected override void ToggleTaskActive()
+    {
+        timeSinceTaskCompleted += Time.deltaTime;
+        if (timeSinceTaskCompleted >= randomIdleTime && !TaskActive && waterFountain.usedSinceFilter)
+        {
+            TaskActive = true;
+            audioSource.PlayOneShot(taskActive);
+            taskCallback.OnActiveTask(this);
+            waterFountain.usedSinceFilter = false;
+        }
+    }
+
     private void AddDirtyWater()
     {
         filterImage.sprite = filterOff;
         if (dirtyWater.fillAmount < 1)
         {
-            dirtyWater.fillAmount += 0.2f * Time.deltaTime;
+            dirtyWater.fillAmount += 0.4f * Time.deltaTime;
         }
         if (cleanWater.fillAmount > 0)
         {
-            cleanWater.fillAmount -= 0.2f * Time.deltaTime;
+            cleanWater.fillAmount -= 0.4f * Time.deltaTime;
         }
     }
 
@@ -72,11 +86,11 @@ public class FiltrationTask : AbstractTask
         filterImage.sprite = filterOn;
         if (dirtyWater.fillAmount > 0)
         {
-            dirtyWater.fillAmount -= 0.2f * Time.deltaTime;
+            dirtyWater.fillAmount -= 0.4f * Time.deltaTime;
         }
         if (cleanWater.fillAmount < 1)
         {
-            cleanWater.fillAmount += 0.2f * Time.deltaTime;
+            cleanWater.fillAmount += 0.4f * Time.deltaTime;
         }
     }
 

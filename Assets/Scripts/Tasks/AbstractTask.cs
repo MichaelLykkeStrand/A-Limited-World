@@ -10,15 +10,15 @@ public abstract class AbstractTask : MonoBehaviour
     [SerializeField] float interactableRadius = 2f;
     [SerializeField] protected float minIdleTime = 5f;
     [SerializeField] protected float maxIdleTime = 10f;
-    [SerializeField] AudioClip taskActive;
-    [SerializeField] AudioClip taskComplete;
+    [SerializeField] protected AudioClip taskActive;
+    [SerializeField] protected AudioClip taskComplete;
     protected AudioSource audioSource;
 
-    private float timeSinceTaskCompleted = 0;
-    private float randomIdleTime;
+    protected float timeSinceTaskCompleted = 0;
+    protected float randomIdleTime;
     public bool TaskActive { get; protected set; } = false;
     public bool MovementRequired { get; protected set; } = false;
-    private ITaskCallback taskCallback;
+    protected ITaskCallback taskCallback;
     protected Transform player;
 
     private bool playerAlreadyInRange = false;
@@ -36,6 +36,12 @@ public abstract class AbstractTask : MonoBehaviour
         HandleEnterRange();
         HandleExitRange();
 
+        ToggleTaskActive();
+
+    }
+
+    protected virtual void ToggleTaskActive()
+    {
         timeSinceTaskCompleted += Time.deltaTime;
         if (timeSinceTaskCompleted >= randomIdleTime && !TaskActive)
         {
@@ -43,7 +49,6 @@ public abstract class AbstractTask : MonoBehaviour
             audioSource.PlayOneShot(taskActive);
             taskCallback.OnActiveTask(this);
         }
-
     }
 
     private void HandleEnterRange()

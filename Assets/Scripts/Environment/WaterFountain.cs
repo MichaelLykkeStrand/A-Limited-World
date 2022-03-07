@@ -17,6 +17,7 @@ public class WaterFountain : MonoBehaviour
     private int healthToGain;
     private bool outOfWater = false;
     private bool canUse = true;
+    public bool usedSinceFilter = false;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class WaterFountain : MonoBehaviour
     public void Drink()
     {
         if (outOfWater || !canUse) { return; }
+        usedSinceFilter = true;
         SetStatus();
         health.Add(healthToGain);
         StartCoroutine(Cooldown());

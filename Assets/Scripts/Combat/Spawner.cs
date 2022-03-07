@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
@@ -35,9 +36,10 @@ public class Spawner : MonoBehaviour
     void SpawnEnemies(){
         var enemies = GameObject.FindGameObjectsWithTag(spawnTag);
         if(enemies.Length >= maxEntities) return;
-        GameObject instance = Instantiate(GetRandomSpawnable());
-        instance.transform.position = GetRandomSpawnpoint().transform.position;
-        
+        Vector3 randomSpawn = GetRandomSpawnpoint().transform.position;
+        var enemy = Instantiate(GetRandomSpawnable(), randomSpawn, Quaternion.identity);
+       // enemy.GetComponent<NavMeshAgent>().Warp(randomSpawn);
+        enemy.GetComponent<FollowTarget>().ready = true;
     }
 
     private GameObject GetRandomSpawnpoint(){
